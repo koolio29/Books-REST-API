@@ -17,7 +17,8 @@ A RESTful API which allows to perform CRUD operations on `books` documents store
 
 1. Clone this repository.
 2. Go to the projects root directory.
-3. Fill in the `.env` file with your details.
+3. Fill in the `.env` file with your details. 
+   * `JWT_KEY` in `.env` is the secret private key which is going to be used to sign and verify JWT.	
 4. Open terminal.
 5. Run `npm install`.
 6. After installation is complete, you can start the REST server by running `npm start`.
