@@ -1,5 +1,5 @@
 const express = require('express');
-const BookController = require('../controllers/bookController');
+const BookController = require('../controllers/booksController');
 const UserControlelr = require('../controllers/userController');
 
 // eslint-disable-next-line new-cap
