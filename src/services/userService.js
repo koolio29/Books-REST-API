@@ -1,8 +1,8 @@
-const registerUser = (Model, bycrypt) => async (username, password) => {
+const registerUser = (Model, bcrypt) => async (username, password) => {
 	let userToRegister = new Model({username: username, password: password});
 
 	try {
-		userToRegister.password = await bycrypt.hash(userToRegister.password, 10);
+		userToRegister.password = await bcrypt.hash(userToRegister.password, 10);
 		userToRegister = await userToRegister.save();
 	} catch (err) {
 		console.error(err);
@@ -43,9 +43,9 @@ const loginUser = (Model) => async (username, password) => {
 	}
 };
 
-module.exports = (UserModel, bycrypt = require('bcrypt')) => {
+module.exports = (UserModel, bcrypt = require('bcrypt')) => {
 	return {
-		registerUser: registerUser(UserModel, bycrypt),
+		registerUser: registerUser(UserModel, bcrypt),
 		loginUser: loginUser(UserModel),
 	};
 };

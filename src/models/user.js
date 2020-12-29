@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bycrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // eslint-disable-next-line new-cap
 const UserSchema = mongoose.Schema({
@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
 
 UserSchema.methods.comparePassword = async (password, hashedPassword) => {
 	try {
-		return await bycrypt.compare(password, hashedPassword);
+		return await bcrypt.compare(password, hashedPassword);
 	} catch (err) {
 		console.err(err.message);
 		// If an error occured in the comparing we treat it as false password
