@@ -9,11 +9,11 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
+				echo "currently on ${env.BRANCH_NAME}"
 				sh "docker build -t koolio29/$IMAGE_NAME:$VERSION ."
 			}
 		}
 		stage('push') {
-			echo "currently on ${env.BRANCH_NAME}"
 			when {
 				expression {
 					env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
