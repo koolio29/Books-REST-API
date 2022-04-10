@@ -13,6 +13,7 @@ pipeline {
 			}
 		}
 		stage('push') {
+			echo "currently on ${env.BRANCH_NAME}"
 			when {
 				expression {
 					env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
